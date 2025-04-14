@@ -9,6 +9,7 @@ import { SITE_BASE, SITE_DOMAIN } from "./src/consts.js";
 
 // https://astro.build/config
 export default defineConfig({
+    output: 'static',
     site: SITE_DOMAIN,
     base: SITE_BASE,
     integrations: [mdx(), sitemap(), react(), partytown()],
