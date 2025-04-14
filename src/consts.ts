@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = 'Simple tricks';
 export const SITE_DESCRIPTION = 'Welcome to the simple tricks for simple devs!';
+export const SITE_DOMAIN = 'https://staslios.github.io';
+export const SITE_BASE = '/grateful-giant';
