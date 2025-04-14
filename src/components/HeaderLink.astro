@@ -1,19 +1,19 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import {removeTrailingSlash} from '../utils/string';
 
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || `${href}/${subpath?.[2]}/` === pathname;
+
+const cleanPathname = removeTrailingSlash(Astro.url.pathname);
+const cleanHref = removeTrailingSlash(href);
+
+const subpath = cleanPathname.match(/[^\/]+/g);
+const isActive = cleanHref === cleanPathname || `${cleanHref}/${subpath?.[2]}` === cleanPathname;
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
-	<div>{href}</div>
-	<div>{pathname}</div>
-	<div>{`${href}/${subpath?.[2]}/`}</div>
-	<div>{subpath}</div>
 	<slot />
 </a>
 <style>
