@@ -12,6 +12,7 @@ const isActive = href === pathname || `${href}/${subpath?.[2]}/` === pathname;
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
 	<div>{href}</div>
 	<div>{`${href}/${subpath?.[2]}/`}</div>
+	<div>{subpath}</div>
 	<slot />
 </a>
 <style>
