@@ -5,7 +5,8 @@ type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname
-const isActive = href === pathname;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || `${href}/${subpath?.[2]}/` === pathname;
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
