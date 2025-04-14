@@ -8,6 +8,7 @@ import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://github.com/Staslios',
+    site: 'https://staslios.github.io',
+    base: 'grateful-giant',
     integrations: [mdx(), sitemap(), react(), partytown()],
 });
